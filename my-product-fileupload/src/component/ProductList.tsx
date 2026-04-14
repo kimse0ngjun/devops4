@@ -7,7 +7,8 @@ import "./ProductList.css";
 const ProductList: React.FC = () => {
   const [products, setProducts] = useState<ProductDTO[]>([]);
   const navigate = useNavigate();
-  const SERVER_URL = "http://localhost:8080";
+  const SERVER_URL =
+    import.meta.env.VITE_API_URL || "http://54.180.244.33:8080";
 
   useEffect(() => {
     productApi.getList().then((res) => setProducts(res));
